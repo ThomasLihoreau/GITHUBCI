@@ -23,9 +23,9 @@ Router.post("/login", (req, res) => {
 		req.body.username === goodCredentials.username &&
 		req.body.password === goodCredentials.password
 	) {
-		res.status(200).send({ status: 200, message: "OK." });
+		res.status(200).send({ status: 200, message: "Ok." });
 	} else {
-		res.status(200).send({ status: 200, message: "OK. Logged in" });
+		res.status(401).send({ status: 400, message: "Unauthorized" });
 		console.log(`[✅] -- Logged in!`);
 	}
 });
