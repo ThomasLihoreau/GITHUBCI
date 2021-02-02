@@ -31,6 +31,9 @@ jobs:
         run: sudo npm install
       - name: Install newman
         run: sudo npm install -g newman
-      - name: Run all tests
-        run: newman run ./GITHUBCI.postman_collection.json
+      - name: Run API & PostMan tests
+        run: |
+          npm start & sleep 2
+          newman run ./GITHUBCI.postman_collection.json
+          kill 9 `lsof -i:42069 -t`
         
