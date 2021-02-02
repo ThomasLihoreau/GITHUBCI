@@ -31,7 +31,7 @@ Router.post("/login", (req, res) => {
 });
 
 Router.post("/register", (req, res) => {
-	if (!req.body || !req.email || !req.password || !req.username)
+	if (!req.body || !req.email || !req.username || !req.password)
 		res.status(400).send({ status: 400, message: "Bad request" });
 	else {
 		res.status(200).send({ status: 200, message: "OK." });
@@ -40,7 +40,7 @@ Router.post("/register", (req, res) => {
 });
 
 Router.get("/pupper", (req, res) => {
-	const pupPath = __dirname + "/../public/imgs/shibe.jpg";
+	const pupPath = __dirname + "/../public/img/shibe.jpg";
 	console.log(pupPath);
 	if (!fs.existsSync(pupPath))
 		res.status(404).send({
