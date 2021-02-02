@@ -32,5 +32,5 @@ jobs:
       - name: Install newman
         run: sudo npm install -g newman
       - name: Run all tests
-        run: newman run ../../GITHUBCI.postman_collection.json
+        run: newman run ./GITHUBCI.postman_collection.json
         
