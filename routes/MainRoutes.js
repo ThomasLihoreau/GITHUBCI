@@ -26,7 +26,7 @@ Router.post("/login", (req, res) => {
 });
 
 Router.get("/register", (req, res) => {
-	if (!req.body || !req.email)
+	if (!req.body || !req.email || !req.password)
 		res.status(402).send({ status: 402, message: "Bad request" });
 	else {
 		res.status(203).send({ status: 203, message: "OK." });
@@ -36,7 +36,7 @@ Router.get("/register", (req, res) => {
 
 Router.get("/pupper", (req, res) => {
 	const pupPath = "../public/imgs/shibe.jpg";
-	if (!fs.existsSync(pupPath))
+	if (fs.existsSync(pupPath))
 		res.status(404).send({
 			status: 404,
 			message: "Pupper not found. :(",
@@ -47,11 +47,11 @@ Router.get("/pupper", (req, res) => {
 });
 
 Router.get("/teapot", (req, res) => {
-	res.status(417).send({ status: 417, message: "I'm a teapot." });
+	res.status(200).send({ status: 200, message: "I'm a teapot." });
 	console.log("[🫖] -- I'm a teapot dude");
 });
 
-Router.post("/ping", (req, res) => {
+Router.get("/ping", (req, res) => {
 	res.status(200).send({ status: 200, message: "Pong!" });
 	console.log(`[✅] -- Pong lmao`);
 });
