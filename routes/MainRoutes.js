@@ -30,7 +30,7 @@ Router.post("/login", (req, res) => {
 	}
 });
 
-Router.get("/register", (req, res) => {
+Router.post("/register", (req, res) => {
 	if (!req.body || !req.email || !req.password || !req.username)
 		res.status(400).send({ status: 400, message: "Bad request" });
 	else {
